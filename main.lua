@@ -70,8 +70,76 @@ local function moveDiagonal(posicao)
 	end
 end
 
+local function moveReto(posicao)
+	if ( ( posicao.x > 110 and posicao.x < 210 ) and ( posicao.y > 190 and posicao.y < 290 ) ) then
+		direcaoA = 0;
+		direcaoB = 0;
+	else
+		if (posicao.phase == "began") then
+			bola:setFillColor(22/255, 184/255, 243/255);
+			bola:setStrokeColor( 255/255,255/255,255/255);
+			-- Area 1
+			if ( ( bola.x > 0 and bola.x < 160 ) and ( bola.y > 0 and bola.y < 240 ) ) then
+				-- Area 2
+				if ( ( posicao.x > 160 and posicao.x < 320 ) and ( posicao.y > 0 and posicao.y < 240 ) ) then
+					direcaoA = 1;
+					direcaoB = 0;
+				end
+				-- Area 3
+				if ( ( posicao.x > 0 and posicao.x < 160 ) and ( posicao.y > 240 and posicao.y < 480 ) ) then
+					direcaoA = 0;
+					direcaoB = 1;
+				end
+			-- Area 2
+			elseif ( ( bola.x > 160 and bola.x < 320 ) and ( bola.y > 0 and bola.y < 240 ) ) then
+				-- Area 1
+				if ( ( posicao.x > 0 and posicao.x < 160 ) and ( posicao.y > 0 and posicao.y < 240 ) ) then
+					direcaoA = -1;
+					direcaoB = 0;
+				end
+				-- Area 4
+				if ( ( posicao.x > 160 and posicao.x < 320 ) and ( posicao.y > 240 and posicao.y < 480 ) ) then
+					direcaoA = 0;
+					direcaoB = 1;
+				end
+			-- Area 3
+			elseif ( ( bola.x > 0 and bola.x < 160 ) and ( bola.y > 240 and bola.y < 480 ) ) then
+				-- Area 1
+				if ( ( posicao.x > 0 and posicao.x < 160 ) and ( posicao.y > 0 and posicao.y < 240 ) ) then
+					direcaoA = 0;
+					direcaoB = -1;
+				end
+				-- Area 4
+				if ( ( posicao.x > 160 and posicao.x < 320 ) and ( posicao.y > 240 and posicao.y < 480 ) ) then
+					direcaoA = 1;
+					direcaoB = 0;
+				end
+			-- Area 4
+			elseif ( ( bola.x > 160 and bola.x < 320 ) and ( bola.y > 240 and bola.y < 480 ) ) then
+				-- Area 2
+				if ( ( posicao.x > 160 and posicao.x < 320 ) and ( posicao.y > 0 and posicao.y < 240 ) ) then
+					direcaoA = 0;
+					direcaoB = -1;
+				end
+				-- Area 3
+				if ( ( posicao.x > 0 and posicao.x < 160 ) and ( posicao.y > 240 and posicao.y < 480 ) ) then
+					direcaoA = -1;
+					direcaoB = 0;
+				end
+			end
+		elseif ( posicao.phase == "ended" ) then
+			bola:setFillColor( 255/255,255/255,255/255 );
+			bola.strokeWidth = 2;
+			bola:setStrokeColor(22/255, 184/255, 243/255);
+			direcaoA = 0;
+			direcaoB = 0;
+		end
+	end
+end
+
 local function onEnterFrame( ev )
 	Runtime:addEventListener("touch", moveDiagonal);
+	Runtime:addEventListener("touch", moveReto);
 	if (direcaoA ~= 0) then
 		bola.x = bola.x + direcaoA;
 	end
