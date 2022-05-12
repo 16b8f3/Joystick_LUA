@@ -106,36 +106,36 @@ local function moveReto(posicao)
 			if ( ( bola.x > 0 and bola.x < 160 ) and ( bola.y > 0 and bola.y < 240 ) ) then
 				-- Area 2
 				if ( ( posicao.x > 160 and posicao.x < 320 ) and ( posicao.y > 0 and posicao.y < 240 ) ) then
-					direcaoA = 1;
+					direcaoA = 1.5;
 					direcaoB = 0;
 				end
 				-- Area 3
 				if ( ( posicao.x > 0 and posicao.x < 160 ) and ( posicao.y > 240 and posicao.y < 480 ) ) then
 					direcaoA = 0;
-					direcaoB = 1;
+					direcaoB = 1.5;
 				end
 			-- Area 2
 			elseif ( ( bola.x > 160 and bola.x < 320 ) and ( bola.y > 0 and bola.y < 240 ) ) then
 				-- Area 1
 				if ( ( posicao.x > 0 and posicao.x < 160 ) and ( posicao.y > 0 and posicao.y < 240 ) ) then
-					direcaoA = -1;
+					direcaoA = -1.5;
 					direcaoB = 0;
 				end
 				-- Area 4
 				if ( ( posicao.x > 160 and posicao.x < 320 ) and ( posicao.y > 240 and posicao.y < 480 ) ) then
 					direcaoA = 0;
-					direcaoB = 1;
+					direcaoB = 1.5;
 				end
 			-- Area 3
 			elseif ( ( bola.x > 0 and bola.x < 160 ) and ( bola.y > 240 and bola.y < 480 ) ) then
 				-- Area 1
 				if ( ( posicao.x > 0 and posicao.x < 160 ) and ( posicao.y > 0 and posicao.y < 240 ) ) then
 					direcaoA = 0;
-					direcaoB = -1;
+					direcaoB = -1.5;
 				end
 				-- Area 4
 				if ( ( posicao.x > 160 and posicao.x < 320 ) and ( posicao.y > 240 and posicao.y < 480 ) ) then
-					direcaoA = 1;
+					direcaoA = 1.5;
 					direcaoB = 0;
 				end
 			-- Area 4
@@ -143,11 +143,11 @@ local function moveReto(posicao)
 				-- Area 2
 				if ( ( posicao.x > 160 and posicao.x < 320 ) and ( posicao.y > 0 and posicao.y < 240 ) ) then
 					direcaoA = 0;
-					direcaoB = -1;
+					direcaoB = -1.5;
 				end
 				-- Area 3
 				if ( ( posicao.x > 0 and posicao.x < 160 ) and ( posicao.y > 240 and posicao.y < 480 ) ) then
-					direcaoA = -1;
+					direcaoA = -1.5;
 					direcaoB = 0;
 				end
 			end
