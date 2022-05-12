@@ -66,6 +66,30 @@ local function moveDiagonal(posicao)
 			bola:setStrokeColor(22/255, 184/255, 243/255);
 			direcaoA = 0;
 			direcaoB = 0;
+			if ( posicao.phase == "ended" ) then
+				if ( ( bola.x > 110 and bola.x < 210 ) and ( bola.y > 190 and bola.y < 290 ) ) then
+					bola.x = 160;
+					bola.y = 240;
+				else
+					-- Area 1
+					if ( ( bola.x > 0 and bola.x < 160 ) and ( bola.y > 0 and bola.y < 240 ) ) then
+						bola.x = 80;
+						bola.y = 120;
+					-- Area 2
+					elseif ( ( bola.x > 160 and bola.x < 320 ) and ( bola.y > 0 and bola.y < 240 ) ) then
+						bola.x = 240;
+						bola.y = 120;
+					-- Area 3
+					elseif ( ( bola.x > 0 and bola.x < 160 ) and ( bola.y > 240 and bola.y < 480 ) ) then
+						bola.x = 80;
+						bola.y = 360;
+					-- Area 4
+					elseif ( ( bola.x > 160 and bola.x < 320 ) and ( bola.y > 240 and bola.y < 480 ) ) then
+						bola.x = 240;
+						bola.y = 360;
+					end
+				end
+			end
 		end
 	end
 end
@@ -133,6 +157,28 @@ local function moveReto(posicao)
 			bola:setStrokeColor(22/255, 184/255, 243/255);
 			direcaoA = 0;
 			direcaoB = 0;
+			if ( ( bola.x > 110 and bola.x < 210 ) and ( bola.y > 190 and bola.y < 290 ) ) then
+				bola.x = 160;
+				bola.y = 240;
+			else
+				-- Area 1
+				if ( ( bola.x > 0 and bola.x < 160 ) and ( bola.y > 0 and bola.y < 240 ) ) then
+					bola.x = 80;
+					bola.y = 120;
+				-- Area 2
+				elseif ( ( bola.x > 160 and bola.x < 320 ) and ( bola.y > 0 and bola.y < 240 ) ) then
+					bola.x = 240;
+					bola.y = 120;
+				-- Area 3
+				elseif ( ( bola.x > 0 and bola.x < 160 ) and ( bola.y > 240 and bola.y < 480 ) ) then
+					bola.x = 80;
+					bola.y = 360;
+				-- Area 4
+				elseif ( ( bola.x > 160 and bola.x < 320 ) and ( bola.y > 240 and bola.y < 480 ) ) then
+					bola.x = 240;
+					bola.y = 360;
+				end
+			end
 		end
 	end
 end
