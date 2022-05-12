@@ -25,3 +25,9 @@ area4:setFillColor(166/255, 155/255, 7/255);
 -- Descanso
 local descanso = display.newRect( _w/2, _h/2, 100, 100 );
 descanso:setFillColor(22/255, 184/255, 243/255);
+
+-- bola
+local bola = display.newCircle( _w/2, _h/2, 18 );
+bola:setFillColor( 255/255,255/255,255/255 );
+bola.strokeWidth = 2;
+bola:setStrokeColor(22/255, 184/255, 243/255);
